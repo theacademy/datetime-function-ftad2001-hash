@@ -13,6 +13,7 @@ public class DateTimeFunctions {
 	 * - Do not change code except as required inside the placeholders.
 	 *	    //YOUR CODE STARTS HERE
 	 *
+	 *
 	 *		//YOUR CODE ENDS HERE
 	 */
 
@@ -22,7 +23,7 @@ public class DateTimeFunctions {
 	 */
 	public static LocalDate getTodaysDate() {
 		//YOUR CODE STARTS HERE
-		return null;
+		return LocalDate.now();  // get the current date
 		//YOUR CODE ENDS HERE
 
 	}
@@ -33,7 +34,9 @@ public class DateTimeFunctions {
 	 */
 	public static LocalDate getLaterDatebyDays(LocalDate date, int x) {
 		//YOUR CODE STARTS HERE
-		return null;
+		// LocalDate.plusDays() shifts a date forward by x days.
+
+		return date.plusDays(x); // Adds x days, returns new LocalDate
 		//YOUR CODE ENDS HERE
 
 	}
@@ -44,7 +47,9 @@ public class DateTimeFunctions {
 	 */
 	public static LocalDate getPreviousDatebyWeeks(LocalDate date, int x) {
 		//YOUR CODE STARTS HERE
-		return null;
+		// LocalDate.minusWeeks() shifts a date backward by x weeks.
+
+		return date.minusWeeks(x); // Subtracts x weeks, returns new LocalDate
 		//YOUR CODE ENDS HERE
 
 	}
@@ -56,7 +61,21 @@ public class DateTimeFunctions {
 	 */
 	public static String getTimeDifference(LocalDate date1, LocalDate date2) {
 		//YOUR CODE STARTS HERE
-		return null;
+		// Period.between() calculates the difference between two LocalDates.
+
+		// Calculate period from date1 to date2, and store in Period Object
+		Period diff = Period.between(date1, date2);
+
+
+		/*
+		* NOTICE: Period Object in java.time has Years, Months, Days attributes
+		* we invoke the getters to get the String value of those attributes
+		 */
+
+		// Format the data as requested ("Year-20:Months-5:Days-1") using Concatenation
+		return "Years-" + diff.getYears() +
+				":Months-" + diff.getMonths() +
+				":Days-" + diff.getDays();
 		//YOUR CODE ENDS HERE
 
 	}
